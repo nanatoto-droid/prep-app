@@ -21,16 +21,18 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.imani.imani.R
 
 
 @Composable
-fun Home_Screen(modifier: Modifier = Modifier) {
+fun Home_Screen(navController: NavController) {
     Column (modifier=Modifier
         .fillMaxSize()
         .background(Color.LightGray),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Top){
+        verticalArrangement = Arrangement.Center){
         Text( "Welcome to imani's app",
             fontSize = 40.sp,
             fontFamily = FontFamily.Cursive,
@@ -79,7 +81,7 @@ fun Home_Screen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun Homeprev() {
-    Home_Screen()
+    Home_Screen(rememberNavController())
 
 }
 

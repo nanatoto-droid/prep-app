@@ -1,4 +1,6 @@
-package com.imani.imani.ui.theme.screens.login
+package com.imani.imani.ui.theme.screens.register
+
+
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -11,7 +13,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -33,7 +39,9 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun Login_Screen(navController: NavController) {
+fun Register_Screen(navController: NavController) {
+    var fname by remember { mutableStateOf(TextFieldValue("")) }
+    var lname by remember { mutableStateOf(TextFieldValue("")) }
     var email by remember { mutableStateOf(TextFieldValue("")) }
     var password by remember { mutableStateOf(TextFieldValue("")) }
     Column(
@@ -44,11 +52,31 @@ fun Login_Screen(navController: NavController) {
             .background(Color.LightGray),
     ) {
         Text(
-            text = "login",
+            text = "Join our community",
             color = Color.Black,
             fontFamily = FontFamily.Serif,
             fontSize = 35.sp,
             fontStyle = FontStyle.Italic
+        )
+        Spacer(modifier = Modifier.height(50.dp))
+        OutlinedTextField(value = fname,
+            onValueChange = {fname=it},
+            label = { Text(text = "Enter First Name") },
+            leadingIcon = { Icon(Icons.Default.Person, contentDescription = "person") },
+            modifier = Modifier
+                .width(300.dp)
+                .padding(8.dp),
+            shape = RoundedCornerShape(20.dp)
+        )
+        Spacer(modifier = Modifier.height(50.dp))
+        OutlinedTextField(value = lname,
+            onValueChange = {lname=it},
+            label = { Text(text = "Enter Last Name") },
+            leadingIcon = { Icon(Icons.Default.Person, contentDescription = "person") },
+            modifier = Modifier
+                .width(300.dp)
+                .padding(8.dp),
+            shape = RoundedCornerShape(20.dp)
         )
         Spacer(modifier = Modifier.height(50.dp))
         OutlinedTextField(value = email,
@@ -60,18 +88,25 @@ fun Login_Screen(navController: NavController) {
                 .padding(8.dp),
             shape = RoundedCornerShape(20.dp)
         )
+
         Spacer(modifier=Modifier.height(50.dp))
         OutlinedTextField(value = password,
             onValueChange = {password=it},
             label = { Text(text ="Password" ) },
+            leadingIcon = { Icon(Icons.Default.Lock, contentDescription = "Password icon") },
             modifier = Modifier
                 .width(300.dp)
                 .padding(8.dp),
             shape = RoundedCornerShape(20.dp))
+
         Spacer(modifier=Modifier.height(50.dp))
         Button(onClick = { TODO() },
-            modifier=Modifier.width(300.dp)) {
-            Text(text = "Login",
+            modifier=Modifier.width(300.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Blue
+            )
+        ) {
+            Text(text = "Register",
                 color = Color.White,
                 fontSize = 30.sp,
                 fontFamily = FontFamily.Serif,
@@ -82,10 +117,9 @@ fun Login_Screen(navController: NavController) {
 
     }
 }
-    @Preview
-    @Composable
-    private fun Loginprev() {
-        Login_Screen(rememberNavController())
+@Preview
+@Composable
+private fun Loginprev() {
+   Register_Screen(rememberNavController())
 
-        
-    }
+}
