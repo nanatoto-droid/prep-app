@@ -24,6 +24,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.imani.imani.R
+import com.imani.imani.navigation.ROUTE_LOGIN
+import com.imani.imani.navigation.ROUTE_REGISTER
 
 
 @Composable
@@ -52,7 +54,7 @@ fun Home_Screen(navController: NavController) {
             fontStyle = FontStyle.Italic
         )
         Spacer(modifier = Modifier.height(30.dp))
-        Button(onClick = { TODO() },
+        Button(onClick = {navController.navigate(ROUTE_LOGIN) },
             modifier = Modifier.width(300.dp)) {
             Text(text = "login",
               color = Color.White,
@@ -64,7 +66,7 @@ fun Home_Screen(navController: NavController) {
 
         }
         Spacer(modifier=Modifier.height(30.dp))
-        Button(onClick = { TODO() },
+        Button(onClick = {navController.navigate(ROUTE_REGISTER) },
             modifier=Modifier.width(300.dp)) {
             Text(text = "Register",
                 color = Color.White,

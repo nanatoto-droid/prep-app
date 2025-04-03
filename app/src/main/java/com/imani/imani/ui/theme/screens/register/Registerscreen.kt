@@ -3,6 +3,7 @@ package com.imani.imani.ui.theme.screens.register
 
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -37,6 +38,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.imani.imani.navigation.ROUTE_LOGIN
+import com.imani.imani.navigation.ROUTE_REGISTER
 
 @Composable
 fun Register_Screen(navController: NavController) {
@@ -49,7 +52,7 @@ fun Register_Screen(navController: NavController) {
         verticalArrangement = Arrangement.Center,
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.LightGray),
+            .background(Color.White),
     ) {
         Text(
             text = "Join our community",
@@ -102,9 +105,7 @@ fun Register_Screen(navController: NavController) {
         Spacer(modifier=Modifier.height(50.dp))
         Button(onClick = { TODO() },
             modifier=Modifier.width(300.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Blue
-            )
+
         ) {
             Text(text = "Register",
                 color = Color.White,
@@ -113,6 +114,15 @@ fun Register_Screen(navController: NavController) {
                 fontStyle = FontStyle.Italic
             )
         }
+        Spacer(modifier = Modifier.height(50.dp))
+        Text(text = "Already have an account !!" +
+                "Click to login",
+            color = Color.Black,
+            fontSize = 15.sp,
+            fontFamily = FontFamily.Serif,
+            fontStyle = FontStyle.Italic,
+            modifier = Modifier.clickable { navController.navigate(ROUTE_LOGIN) })
+
 
 
     }
