@@ -1,5 +1,6 @@
 package com.imani.imani.ui.theme.screens.splash
 
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -35,4 +36,3 @@ fun SplashScreen(navController: NavHostController) {
     }
 
 }
-

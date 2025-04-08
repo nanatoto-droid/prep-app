@@ -10,6 +10,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.imani.imani.ui.theme.screens.Dashboard.Dashboard_Screen
 import com.imani.imani.ui.theme.screens.home.Home_Screen
 import com.imani.imani.ui.theme.screens.login.Login_Screen
 import com.imani.imani.ui.theme.screens.register.Register_Screen
@@ -33,6 +34,9 @@ fun AppNavHost(modifier: Modifier = Modifier,
         }
         composable(ROUTE_SPLASH){
             SplashScreen(navController)
+        }
+        composable(ROUTE_DASHBOARD){
+            Dashboard_Screen()
         }
 
     }

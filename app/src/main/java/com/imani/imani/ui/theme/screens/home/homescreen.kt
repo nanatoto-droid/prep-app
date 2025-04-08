@@ -75,6 +75,16 @@ fun Home_Screen(navController: NavController) {
                 fontStyle = FontStyle.Italic
             )
         }
+        Spacer(modifier=Modifier.height(30.dp))
+        Button(onClick = {navController.navigate(ROUTE_REGISTER) },
+            modifier=Modifier.width(300.dp)) {
+            Text(text = "Dashboard",
+                color = Color.White,
+                fontSize = 30.sp,
+                fontFamily = FontFamily.Serif,
+                fontStyle = FontStyle.Italic
+            )
+        }
 
     }
 
